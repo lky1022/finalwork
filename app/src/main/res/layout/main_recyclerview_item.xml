@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/book_cover"
+        android:layout_width="148dp"
+        android:layout_height="116dp"
+        android:src="@drawable/ic_launcher_background"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="116dp">
+        <TextView
+            android:text= "龙族"
+            android:textSize="30sp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:id="@+id/book_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+        <TextView
+            android:text="都市玄幻小说"
+            android:textSize="20dp"
+            android:gravity="left"
+            android:textStyle="italic"
+            android:id="@+id/book_jianjie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </LinearLayout>
