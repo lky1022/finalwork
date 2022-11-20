@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Finalwork</string>
+
+    <string name="string_confirmation">Confirmation</string>
+    <string name="string_sure_to_delete">Are you sure to delete this item</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
+
 </resources>

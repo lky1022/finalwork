@@ -1,13 +1,14 @@
 package cn.edu.jnu.finalwork;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import cn.edu.jnu.finalwork.data.book;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int MEUN_ID_ADD = 1;
     public static final int MEUN_ID_UPDATE = 2;
     public static final int MEUN_ID_DELETE = 3;
-    private ArrayList<String> mianStringSet;
+    private ArrayList<cn.edu.jnu.finalwork.data.book> book;
     private Object LayoutInflater;
+    private MainRecycleVievAdapter mainRecycleVievAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManger.setOrientation(LinearLayoutManger.HORIZONTAL);
         recyclerViewMain.setLayoutManager(LinearLayoutManger);
 
-        mianStringSet =new ArrayList<String>();
+        book = new ArrayList<>();
         for(int i=1;i<10;++i)
         {
-            mianStringSet.add("NO."+i);
+            book.add(new book(R.drawable.textph,"longzhu","xuanhuansiaos" ));
         }
-        MainRecycleVievAdapter mainRecycleVievAdapter=new MainRecycleVievAdapter(mianStringSet);
+         mainRecycleVievAdapter= new MainRecycleVievAdapter(book);
         recyclerViewMain.setAdapater(mainRecycleVievAdapter);
 
     }
@@ -50,10 +55,31 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case MEUN_ID_ADD:
+                book.add(item.getItemId(),new book(R.drawable.textph,"longzhu","xioashou"));
+                mainRecycleVievAdapter.notifyItemInserted(item.getOrder());
                 break;
             case MEUN_ID_UPDATE:
+                book.get(item.getOrder()).setBook_title("niu");
+                mainRecycleVievAdapter.notifyItemInserted(item.getOrder());
                 break;
-            case MEUN_ID_DELETE;
+            case MEUN_ID_DELETE:
+                AlertDialog alertDialog= new AlertDialog.Builder(this)
+                        .setTitle(R.string.string_confirmation)
+                        .setMessage(R.string.string_sure_to_delete)
+                        .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).setPositiveButton(R.string.yesup, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                               book.remove(item.getOrder());
+                               mainRecycleVievAdapter.notifyItemInserted(item.getOrder());
+                            }
+                        }).create();
+                alertDialog.show();
+
             break;
         }
         return super.onContextItemSelected(item);
@@ -98,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public ViewHolder onCreatViewHolder(@NonNull ViewGroup viewGroup, int viewtype){
-        View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.id.recycle_view_books,viewGroup,attachToRoot: false);
+       View view= LayoutInflater.form(viewGroup.getContext())
+               .inflate(R.id.recycle_view_books,viewGroup,false);
 
         return new VeiwHolder(view);
     }
@@ -107,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public  void onBindViewHorder(RecyclerView ViewHolder,final int position){
 
-       viewHorder.getTextView().setText(localDataSet.get(position));
-       ViewHolder().getImageViewImage().setImageResource();
+       viewHorder.getTextView().setText(localDataSet.get(position).getTitle());
+       ViewHolder().getImageViewImage().setImageResource(localDataSet.get(position).getResourceId());
     }
 
     @Override
