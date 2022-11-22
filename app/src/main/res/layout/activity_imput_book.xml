@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".imput_bookActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="316dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bookmane"
+                tools:layout_editor_absoluteX="62dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <EditText
+                android:id="@+id/editTextTextbookTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="72dp" />
+
+            <TextView
+                android:id="@+id/textViewjianjie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bookjianjie"
+                tools:layout_editor_absoluteX="62dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <EditText
+                android:id="@+id/editTextTextbookjianjie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="72dp" />
+            <Button
+                android:id="@+id/button_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ok"></Button>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

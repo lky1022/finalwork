@@ -1,5 +1,8 @@
 package cn.edu.jnu.finalwork;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -14,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,6 +32,21 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<cn.edu.jnu.finalwork.data.book> book;
     private Object LayoutInflater;
     private MainRecycleVievAdapter mainRecycleVievAdapter;
+
+    private ActivityResultLauncher<Intent> addDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
+            ,result ->{
+        if(null!=result){
+            Intent intent=result.getData();
+            if(result.getResultCode()!=input_bookActivity.RESULT_CODE_SUCCESS)
+            {
+                Bundle bundle=intent.getExtras();
+                String book_title=bundle.getString("title");
+                String book_jianjie= bundle.getString("jianjie");
+                book.add(1,new book(R.drawable.textph,"longzhu","xioashou"));
+                mainRecycleVievAdapter.notifyItemInserted(1);
+            }
+        }
+            } );
 
 
     @Override
@@ -55,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case MEUN_ID_ADD:
-                book.add(item.getItemId(),new book(R.drawable.textph,"longzhu","xioashou"));
-                mainRecycleVievAdapter.notifyItemInserted(item.getOrder());
+                Intent intent=new Intent(this,imput_bookActivity.class);
+                addDataLauncher.launch(intent);
+                //startActivity(intent);
+                //book.add(item.getItemId(),new book(R.drawable.textph,"longzhu","xioashou"));
+                //mainRecycleVievAdapter.notifyItemInserted(item.getOrder());
                 break;
             case MEUN_ID_UPDATE:
                 book.get(item.getOrder()).setBook_title("niu");
