@@ -90,20 +90,27 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> localDataSet;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
-        private final TextView textView;
+
+        public TextView getTextViewjianjie() {
+            return textViewjianjie;
+        }
+
+        private final TextView textViewTitel;
+        private final TextView textViewjianjie;
         private final ImageView imageViewImage;
 
         public ViewHolder(TextView textView) {
-            super(view);
+            super(textView);
 
-            textView=(TextView) itemView.findViewById(R.id.);//lose a definition
+            textViewTitel=textView.findViewById(R.id.book_title);
+            textViewjianjie= textView.findViewById(R.id.book_jianjie);
             imageViewImage= textView.findViewById(R.id.book_cover);
 
             itemView.setOnCreateContextMenuListener(this);
         }
 
-        public TextView getTextView(){
-            return textView;
+        public TextView getTextViewTitel(){
+            return textViewTitel ;
         }
 
         public ImageView getImageViewImage() {
@@ -133,8 +140,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public  void onBindViewHorder(RecyclerView ViewHolder,final int position){
 
-       viewHorder.getTextView().setText(localDataSet.get(position).getTitle());
+       viewHorder.gettextViewTitel().setText(localDataSet.get(position).getTitle);
        ViewHolder().getImageViewImage().setImageResource(localDataSet.get(position).getResourceId());
+       viewHorder.gettextViewjianjie().setText(localDataSet.get(position).getjianjie());
     }
 
     @Override
