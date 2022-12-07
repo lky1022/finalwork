@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private Object LayoutInflater;
     private MainRecycleVievAdapter mainRecycleVievAdapter;
 
+    // 有问题
+
     private ActivityResultLauncher<Intent> addDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result ->{
         if(null!=result){
