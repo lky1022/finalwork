@@ -35,7 +35,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.My
         holder.head.setImageResource(book.getHeadId());
 
     }
-
+                               
     @Override
     public int getItemCount() {
         return bookList.size();

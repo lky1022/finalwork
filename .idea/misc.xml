@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/drawable/button_draw.xml" value="0.2265" />
         <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
-        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_imput_book.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/drawable/jianjie.xml" value="0.2265" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_book.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_book_search.xml" value="0.2247863247863248" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_book_search_jieguo.xml" value="0.2247863247863248" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_imput_book.xml" value="0.2" />
         <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/item.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/item_bookline.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/layout_linear.xml" value="0.264" />
         <entry key="..\:/Users/26330/AndroidStudioProjects/MyFinalwork/app/src/main/res/layout/main_recyclerview_item.xml" value="0.24947916666666667" />
       </map>
     </option>
