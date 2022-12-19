@@ -16,7 +16,7 @@ public class EditBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_book);
+        setContentView(R.layout.activity_imput_book);
         position=this.getIntent().getIntExtra("position",0);
         String title=this.getIntent().getStringExtra("title");
         String jianjie=this.getIntent().getStringExtra("jianjie");

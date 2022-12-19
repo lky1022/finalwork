@@ -9,21 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import cn.jnu.finalwork.base.Book;
-
 import java.util.List;
+
+import cn.edu.jnu.finalwork.data.Book;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.MyViewHolder>{
     private List<Book> bookList;
 
-    public SearchBookAdapter(List<Book> bookList) {
+
+    public SearchBookAdapter(List<Book> searchbookList) {
         this.bookList = bookList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear_item,parent,false);
+        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear,parent,false);
         MyViewHolder myViewHolder=new MyViewHolder(itemView);
         return myViewHolder;
     }

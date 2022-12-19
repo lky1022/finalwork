@@ -15,7 +15,7 @@ public class SearchBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book);
+        setContentView(R.layout.activity_book_search);
 
         EditText booktitle=findViewById(R.id.searchbooktitle);
         Button buttonOk=findViewById(R.id.search_btn_yes);
@@ -24,7 +24,7 @@ public class SearchBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent1=new Intent(SearchBookActivity.this, SearchBookActivity2.class);
+                Intent intent1=new Intent(SearchBookActivity.this, SearchBookActivityjieguo.class);
                 intent1.putExtra("booktitle",booktitle.getText().toString());
                 startActivity(intent1);
 

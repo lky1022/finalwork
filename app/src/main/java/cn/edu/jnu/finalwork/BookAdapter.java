@@ -9,15 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.jnu.finalwork.base.BookJson;
 
 import java.util.ArrayList;
+
+import cn.edu.jnu.finalwork.data.Bookj;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
     public static final int MENU_ID_1 = 1;
     public static final int MENU_ID_2 = 2;
-    private ArrayList<BookJson.ResultBean.DataBean> BookList=new ArrayList<BookJson.ResultBean.DataBean>();
+    private ArrayList<Bookj.ResultBean.DataBean> BookList=new ArrayList<Bookj.ResultBean.DataBean>();
 
     private OnItemClickListener mOnItemClickListener;//声明点击时间对象名称
 
@@ -26,7 +26,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         this.mOnItemClickListener=listener;
     }
 
-    public BookAdapter(ArrayList<BookJson.ResultBean.DataBean> bookList) {
+    public BookAdapter(ArrayList<Bookj.ResultBean.DataBean> bookList) {
         this.BookList = bookList;
     }
 
@@ -35,16 +35,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     @NonNull
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear_item,parent,false);
+        View itemview= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear,parent,false);
         BookViewHolder myViewHolder=new BookViewHolder(itemview);
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull BookAdapter.BookViewHolder holder, int position) {
-        BookJson.ResultBean.DataBean book=BookList.get(position);
+        Bookj.ResultBean.DataBean book=BookList.get(position);
         holder.booktitle.setText(book.getTitle());
-        Glide.with(holder.itemView).load(book.getImg()).into(holder.bookcover);
         holder.sub.setText(book.getCatalog());
     }
 

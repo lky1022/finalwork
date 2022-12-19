@@ -17,9 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jnu.finalwork.base.BaseActivity;
-import com.jnu.finalwork.base.Book;
-import com.jnu.fianlwork.base.DataSaver;
+import cn.edu.jnu.finalwork.data.Book;
+import cn.edu.jnu.finalwork.data.datasave;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,8 +53,8 @@ public class MainActivity extends BaseActivity {
                         String title= bundle.getString("title");
                         String jianjie=bundle.getString("jianjie");
                         int n=bookList.size();
-                        bookList.add(n,new Book(title,jianjie,R.drawable.book_no_name));
-                        new DataSaver().save(this,bookList);
+                        bookList.add(n,new Book(title,jianjie,R.drawable.book_nomane));
+                        new datasave().save(this,bookList);
                         linearAdapter.notifyItemInserted(n);
 
                     }
@@ -76,7 +75,7 @@ public class MainActivity extends BaseActivity {
                         linearAdapter.notifyItemChanged(position);
                         bookList.get(position).setJianjie(jianjie);
                         linearAdapter.notifyItemChanged(position);
-                        new DataSaver().save(this,bookList);
+                        new datasave().save(this,bookList);
 
                     }
                 }
@@ -149,12 +148,12 @@ public class MainActivity extends BaseActivity {
 //        onSuccess();
 
 
-        DataSaver dataSaver=new DataSaver();
+        datasave dataSaver=new datasave();
         bookList=dataSaver.Load(this);
 
         if (bookList.size()==0) {
             for(int i=1;i<5;i++) {
-                bookList.add(new Book(i % 3 == 0 ? "软件项目管理案例教程（第4版）" : (i % 3 == 1 ? "创新工程实践" : "信息安全数学基础（第2版）"), "暂无简介",i % 3 == 0 ? R.drawable.book_2 : (i % 3 == 1 ? R.drawable.book_no_name : R.drawable.book_1)));
+                bookList.add(new Book(i % 3 == 0 ? "龙族" : (i % 3 == 1 ? "玄幻小说" : "江南"), "无",i % 3 == 0 ? R.drawable.book_douluodalu : (i % 3 == 1 ? R.drawable.book_nomane : R.drawable.book_douluodalu)));
             }
         }
         linearAdapter=new LinearAdapter(bookList);
@@ -194,7 +193,7 @@ public class MainActivity extends BaseActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i){
                                 bookList.remove(item.getOrder());
-                                new DataSaver().save(MainActivity.this,bookList);
+                                new datasave().save(MainActivity.this,bookList);
                                 linearAdapter.notifyItemRemoved(item.getOrder());
                             }
                         }).setPositiveButton("No", new DialogInterface.OnClickListener() {

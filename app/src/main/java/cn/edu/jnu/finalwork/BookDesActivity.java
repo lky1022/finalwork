@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jnu.finalwork.base.Book;
+import cn.edu.jnu.finalwork.data.Book;
 
 public class BookDesActivity extends AppCompatActivity {
     private TextView booktitle;
@@ -18,7 +18,7 @@ public class BookDesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_des);
+        setContentView(R.layout.activity_book);
         booktitle = (TextView) findViewById(R.id.bookdestitle);
         bookauthor = (TextView) findViewById(R.id.bookdesauthor);
         bookcover = (ImageView) findViewById(R.id.bookdescover);

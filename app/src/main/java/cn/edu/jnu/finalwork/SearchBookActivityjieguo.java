@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jnu.finalwork.base.Book;
-import com.jnu.finalwork.base.DataSaver;
+import cn.edu.jnu.finalwork.data.Book;
+import cn.edu.jnu.finalwork.data.datasave;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +21,13 @@ public class SearchBookActivityjieguo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book2);
+        setContentView(R.layout.activity_book_search_jieguo);
 
         recyclerView=findViewById(R.id.serch_recycleview_books);
         List<Book>bookList=new ArrayList<>();
         List<Book>searchbookList=new ArrayList<>();
         //查询书籍数据
-        DataSaver dataSaver=new DataSaver();
+        datasave dataSaver=new datasave();
         bookList=dataSaver.Load(this);
 
         Intent intent=getIntent();

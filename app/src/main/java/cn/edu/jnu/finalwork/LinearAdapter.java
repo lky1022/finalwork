@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jnu.finalwork.base.Book;
-
 import java.util.ArrayList;
+
+import cn.edu.jnu.finalwork.data.Book;
 
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder>{
     public static final int MENU_ID_1 = 1;
@@ -42,7 +42,7 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     @Override
     //加载布局
     public LinearAdapter.LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview=LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear_item,parent,false);
+        View itemview=LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_linear,parent,false);
         LinearViewHolder myViewHoder=new LinearViewHolder(itemview);
         return myViewHoder;
     }
